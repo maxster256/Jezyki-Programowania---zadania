@@ -7,7 +7,7 @@ import java.io.*;
 public class Notebook {
     JFrame frame;
     JTextField field;
-    JTextArea area;
+    JTextArea area; //it works
     JButton NEW, OPEN, SAVE, CLOSE;
     public void start(){
         init_frame();
