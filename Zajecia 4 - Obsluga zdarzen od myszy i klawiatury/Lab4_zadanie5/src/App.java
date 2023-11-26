@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 
 public class App extends JFrame {
     Shapes_panel shapes;
@@ -20,7 +18,7 @@ public class App extends JFrame {
         setLayout(null);
     }
 
-    public void create_shapes(){
+    public void create_shapes(){ // and the panel itself
         shapes = new Shapes_panel();
         shapes.setBounds(0, 0, 800, 700);
     }
