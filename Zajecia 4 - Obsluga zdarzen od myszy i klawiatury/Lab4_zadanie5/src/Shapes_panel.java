@@ -23,8 +23,7 @@ public class Shapes_panel extends JPanel {
         g.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 
         g.setColor(Color.RED);
-        Graphics2D g2d = (Graphics2D) g;
-        g2d.fill(oval);
+        g.fillOval((int)oval.getX(),(int)oval.getY(),(int)oval.getWidth(),(int)oval.getHeight());
 
         revalidate();
         repaint();
