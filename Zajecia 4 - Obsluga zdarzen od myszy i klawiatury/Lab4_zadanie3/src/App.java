@@ -11,7 +11,7 @@ public class App extends JFrame {
         setVisible(true);
     }
     public void init_frame(){
-        setTitle("Shapes features");
+        setTitle("Shapes moving by click");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800,700);
         setLayout(null);

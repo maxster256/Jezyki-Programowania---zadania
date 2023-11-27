@@ -7,12 +7,11 @@ public class App extends JFrame {
         create_shapes();
         add_elements();
 
-        //pack();
         setLocationRelativeTo(null);
         setVisible(true);
     }
     public void init_frame(){
-        setTitle("Shape sizing with scroll");
+        setTitle("Shapes moving by key");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800,700);
         setLayout(null);
