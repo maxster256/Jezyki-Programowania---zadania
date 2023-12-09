@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Example/Example.iml" filepath="$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Example/Example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/JPgit.iml" filepath="$PROJECT_DIR$/.idea/JPgit.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Lab4_zadanie3/Lab4_zadanie3.iml" filepath="$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Lab4_zadanie3/Lab4_zadanie3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Lab4_zadanie4/Lab4_zadanie4.iml" filepath="$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Lab4_zadanie4/Lab4_zadanie4.iml" />
@@ -10,12 +11,14 @@
       <module fileurl="file://$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie1/SWING_zadanie1.iml" filepath="$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie1/SWING_zadanie1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie2/SWING_zadanie2.iml" filepath="$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie2/SWING_zadanie2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie6/SWING_zadanie6.iml" filepath="$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/SWING_zadanie6/SWING_zadanie6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Zadanie 1/Zadanie 1.iml" filepath="$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Zadanie 1/Zadanie 1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie1/Zadanie1.iml" filepath="$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie1/Zadanie1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie10/Zadanie10.iml" filepath="$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie10/Zadanie10.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie2/Zadanie2.iml" filepath="$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie2/Zadanie2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie3/Zadanie3.iml" filepath="$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie3/Zadanie3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie5/Zadanie5.iml" filepath="$PROJECT_DIR$/Zajecia 2 - kolekcje/Zadanie5/Zadanie5.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury.iml" filepath="$PROJECT_DIR$/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury/Zajecia 4 - Obsluga zdarzen od myszy i klawiatury.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Zajecia 5 - zaawansowane rysowanie animacje.iml" filepath="$PROJECT_DIR$/Zajecia 5 - zaawansowane rysowanie animacje/Zajecia 5 - zaawansowane rysowanie animacje.iml" />
       <module fileurl="file://$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/untitled2.iml" filepath="$PROJECT_DIR$/Zajecia 3 - interfejs graficzny z uzyciem SWING/untitled2/untitled2.iml" />
     </modules>
   </component>
