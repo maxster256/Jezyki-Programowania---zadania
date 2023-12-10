@@ -18,18 +18,41 @@ Upewnij się, że operacje edycji nie kolidują ze sobą
  */
 public class App extends JFrame {
     Dimension screen;
-    JButton image_button;
-    Drawing_panel panel;
-    JLabel label;
+    JPanel panel;
+    JButton image_button, paint_button, blur_button;
+    Drawing_panel painting_panel;
+    Open_image openImage;
+    Paint_image paintImage;
     public void start(){
         init_frame();
-        panel = new Drawing_panel(screen);
+        init_panel();
+        panel = new JPanel();
+
+        painting_panel = new Drawing_panel();
+        setContentPane(panel);
+        panel.add(painting_panel);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                painting_panel.initialize(screen);
+            }
+        });
         create_buttons();
-        add_elements();
 
         setLayout(null);
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+    public void init_frame(){
+        setTitle("Image editor");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        screen = Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight());
+        setLayout(null);
+    }
+    public void init_panel(){
+        setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight()-200);
+        setBackground(Color.white);
     }
     public void create_buttons(){
         image_button = new JButton("Open image");
@@ -38,33 +61,31 @@ public class App extends JFrame {
         image_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(null);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    try {
-                        BufferedImage image = ImageIO.read(selectedFile);
-                        label = new JLabel();
-                        label.setIcon(new ImageIcon(image));
-
-                        panel.add(label);
-                        revalidate();
-                        repaint();
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
+                openImage = new Open_image(painting_panel);
+                openImage.start();
             }
         });
-    }
-    public void init_frame(){
-        setTitle("Shapes features");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        screen = Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight());
-        setLayout(null);
-    }
-    public void add_elements(){
-        add(panel);
+
+        paint_button =  new JButton("Paint");
+        paint_button.setBounds(700,900,120,50);
+        add(paint_button);
+        paint_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paintImage = new Paint_image(painting_panel);
+                paintImage.start();
+            }
+        });
+
+        blur_button = new JButton("Blur image");
+        blur_button.setBounds(1100,900,120,50);
+        add(blur_button);
+        blur_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Blur_image blurImage = new Blur_image(painting_panel);
+                blurImage.start();
+            }
+        });
     }
 }
