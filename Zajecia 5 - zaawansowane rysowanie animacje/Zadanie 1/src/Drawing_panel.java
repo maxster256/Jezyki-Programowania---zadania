@@ -4,16 +4,13 @@ import java.awt.image.BufferedImage;
 
 public class Drawing_panel extends JPanel{
     private App_image A_Im = new App_image();
-    private int delay = 50;
-    private Timer timer;
     private Image image;
     Graphics2D buffer;
-    private BufferedImage imageToDraw, canvas, blurredImage, merged_image;
+    private BufferedImage imageToDraw, canvas, fixed_image;
 
     public Drawing_panel(){
         super();
         setBackground(Color.white);
-        //timer = new Timer(delay,this);
     }
 
     public void initialize(Dimension screen){
@@ -26,8 +23,10 @@ public class Drawing_panel extends JPanel{
         setVisible(true);
     }
 
-    public void paintOnCanvas(int x, int y, Color color) {
-        Graphics2D g2d = canvas.createGraphics();
+    public void paintByMouse(int x, int y, Color color) {
+        Graphics2D g2d;
+        if(fixed_image == null) {g2d = imageToDraw.createGraphics();}
+        else                    {g2d = fixed_image.createGraphics();}
         g2d.setColor(color);
         g2d.fillOval(x, y, 20, 20);
         g2d.dispose();
@@ -37,30 +36,19 @@ public class Drawing_panel extends JPanel{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         if (imageToDraw != null) {
             g.drawImage(imageToDraw, 0, 0, this);
-            A_Im.setImage(mergeImages(imageToDraw,canvas));
+            A_Im.setImage(imageToDraw);
         }
         if (canvas != null) {
             g.drawImage(canvas, 0, 0, this);
         }
-        if(blurredImage != null){
-            g.drawImage(blurredImage, 0, 0, this);
+        if(fixed_image != null){
+            g.drawImage(fixed_image, 0, 0, this);
+            A_Im.setImage(fixed_image);
         }
         revalidate();
         repaint();
-    }
-    public BufferedImage mergeImages(BufferedImage PNG, BufferedImage painted) {
-        BufferedImage mergedImage = new BufferedImage(
-                PNG.getWidth(), PNG.getHeight(), BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g2d = mergedImage.createGraphics();
-        g2d.drawImage(PNG, 0, 0, null);
-        g2d.drawImage(painted, 0, 0, null);
-        g2d.dispose();
-
-        return mergedImage;
     }
 
     public void setImage(BufferedImage image) {
@@ -68,8 +56,8 @@ public class Drawing_panel extends JPanel{
         repaint();
     }
 
-    public void setBlurredImage(BufferedImage image) {
-        this.blurredImage = image;
+    public void setFixed_image(BufferedImage image) {
+        this.fixed_image = image;
         repaint();
     }
 
@@ -77,9 +65,6 @@ public class Drawing_panel extends JPanel{
         return A_Im;
     }
 
-    public BufferedImage getCanvas(){
-        return canvas;
-    }
     public void newCanvas(){
         canvas = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
     }

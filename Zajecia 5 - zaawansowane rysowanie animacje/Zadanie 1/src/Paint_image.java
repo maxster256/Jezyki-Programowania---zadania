@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.image.BufferedImage;
 
 public class Paint_image extends Thread{
     private Drawing_panel drawingPanel;
@@ -27,7 +26,7 @@ public class Paint_image extends Thread{
             @Override
             public void mousePressed(MouseEvent e) {
                 super.mousePressed(e);
-                drawingPanel.paintOnCanvas(e.getX(), e.getY(),chosenColor);
+                drawingPanel.paintByMouse(e.getX(), e.getY(),chosenColor);
             }
         });
 
@@ -35,7 +34,7 @@ public class Paint_image extends Thread{
             @Override
             public void mouseDragged(MouseEvent e) {
                 super.mouseDragged(e);
-                drawingPanel.paintOnCanvas(e.getX(), e.getY(),chosenColor);
+                drawingPanel.paintByMouse(e.getX(), e.getY(),chosenColor);
             }
         });
     }

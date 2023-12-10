@@ -10,14 +10,15 @@ public class Blur_image extends Thread{
     }
     @Override
     public void run(){
-        float[] matrix = {
-                1.0f / 16, 2.0f / 16, 1.0f / 16,
-                2.0f / 16, 4.0f / 16, 2.0f / 16,
-                1.0f / 16, 2.0f / 16, 1.0f / 16
+        float[] blur_matrix = {
+                1.0f / 9, 1.0f / 9, 1.0f / 9,
+                1.0f / 9, 1.0f / 9, 1.0f / 9,
+                1.0f / 9, 1.0f / 9, 1.0f / 9
         };
-        Kernel kernel = new Kernel(3, 3, matrix);
+        Kernel kernel = new Kernel(3, 3, blur_matrix);
 
         ConvolveOp convolveOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null);
-        drawingPanel.setBlurredImage(convolveOp.filter(drawingPanel.getA_Im().getImage(), null));
+        drawingPanel.setFixed_image(convolveOp.filter(drawingPanel.getA_Im().getImage(), null));
+        drawingPanel.getA_Im().setImage(convolveOp.filter(drawingPanel.getA_Im().getImage(), null));
     }
 }

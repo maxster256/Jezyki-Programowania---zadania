@@ -6,17 +6,11 @@ import java.io.IOException;
 
 public class Open_image extends Thread{
 
-    //private App_image A_Im = new App_image();
     private Drawing_panel drawingPanel;
 
     public Open_image(Drawing_panel drawingPanel) {
         this.drawingPanel = drawingPanel;
     }
-    /*
-    public App_image getA_Im(){
-        return A_Im;
-    }*/
-
     @Override
     public void run() {
         try {
@@ -26,11 +20,10 @@ public class Open_image extends Thread{
                 File selectedFile = fileChooser.getSelectedFile();
                 try {
                     BufferedImage image = ImageIO.read(selectedFile);
-                    //A_Im.setImage(image);
                     SwingUtilities.invokeLater(() -> drawingPanel.setImage(image));
 
                     drawingPanel.newCanvas();
-                    drawingPanel.setBlurredImage(null);
+                    drawingPanel.setFixed_image(null);
                     drawingPanel.revalidate();
                     drawingPanel.repaint();
                 } catch (IOException ex) {
