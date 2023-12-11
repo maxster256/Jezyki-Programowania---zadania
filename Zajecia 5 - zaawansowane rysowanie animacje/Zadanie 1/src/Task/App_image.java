@@ -1,3 +1,5 @@
+package Task;
+
 import java.awt.image.BufferedImage;
 
 public class App_image{

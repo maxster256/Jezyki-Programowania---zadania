@@ -1,3 +1,7 @@
+package Task.ButtonFunctions;
+
+import Task.Drawing_panel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;

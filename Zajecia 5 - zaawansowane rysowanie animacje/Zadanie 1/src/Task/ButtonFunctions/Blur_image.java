@@ -1,3 +1,7 @@
+package Task.ButtonFunctions;
+
+import Task.Drawing_panel;
+
 import java.awt.image.ConvolveOp;
 import java.awt.image.Kernel;
 

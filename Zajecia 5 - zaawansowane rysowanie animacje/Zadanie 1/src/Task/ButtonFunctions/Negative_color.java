@@ -1,3 +1,7 @@
+package Task.ButtonFunctions;
+
+import Task.Drawing_panel;
+
 import java.awt.image.BufferedImage;
 
 public class Negative_color extends Thread{

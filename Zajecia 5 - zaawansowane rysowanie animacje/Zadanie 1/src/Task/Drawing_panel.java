@@ -1,3 +1,5 @@
+package Task;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -5,6 +7,7 @@ import java.awt.image.BufferedImage;
 public class Drawing_panel extends JPanel{
     private App_image A_Im = new App_image();
     private BufferedImage imported_image, fixed_image;
+    private int paintSize = 20;
 
     public void initialize(Dimension screen){
         setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight()-200);
@@ -18,7 +21,7 @@ public class Drawing_panel extends JPanel{
         if(fixed_image == null) {g2d = imported_image.createGraphics();}
         else                    {g2d = fixed_image.createGraphics();}
         g2d.setColor(color);
-        g2d.fillOval(x, y, 20, 20);
+        g2d.fillOval(x, y, paintSize, paintSize);
         g2d.dispose();
         repaint();
     }
@@ -48,5 +51,8 @@ public class Drawing_panel extends JPanel{
     }
     public App_image getA_Im(){
         return A_Im;
+    }
+    public void paintSize(int x){
+        paintSize+= x;
     }
 }

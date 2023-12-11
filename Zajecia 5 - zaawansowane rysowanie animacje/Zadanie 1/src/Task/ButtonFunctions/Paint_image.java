@@ -1,7 +1,12 @@
+package Task.ButtonFunctions;
+
+import Task.Drawing_panel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 
 public class Paint_image extends Thread{
     private Drawing_panel drawingPanel;
@@ -35,6 +40,14 @@ public class Paint_image extends Thread{
             public void mouseDragged(MouseEvent e) {
                 super.mouseDragged(e);
                 drawingPanel.paintByMouse(e.getX(), e.getY(),chosenColor);
+            }
+        });
+
+        drawingPanel.addMouseWheelListener(new MouseAdapter() {
+            @Override
+            public void mouseWheelMoved(MouseWheelEvent e) {
+                super.mouseWheelMoved(e);
+                drawingPanel.paintSize(e.getWheelRotation()*(-3));
             }
         });
     }
