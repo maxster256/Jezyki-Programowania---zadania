@@ -122,9 +122,7 @@ public class App extends JFrame {
                 try {
                     File imageToSave = new File("saved.png");
                     ImageIO.write(painting_panel.getA_Im().getImage(), "png", imageToSave);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+                } catch (IOException ex) {throw new RuntimeException(ex);}
             }
         });
 
