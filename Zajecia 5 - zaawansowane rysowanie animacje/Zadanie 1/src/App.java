@@ -1,7 +1,11 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+
 /*
 Zadanie 1: Edytor graficzny z efektami specjalnymi
 
@@ -14,7 +18,7 @@ Upewnij się, że operacje edycji nie kolidują ze sobą
 public class App extends JFrame {
     Dimension screen;
     JPanel panel;
-    JButton image_button, paint_button, blur_button, negative_color, mono_color;
+    JButton image_button, paint_button, blur_button, negative_color, mono_color, save_image;
     Drawing_panel painting_panel;
     Open_image openImage;
     Paint_image paintImage;
@@ -51,7 +55,7 @@ public class App extends JFrame {
     }
     public void create_buttons(){
         image_button = new JButton("Open image");
-        image_button.setBounds(700,900,120,50);
+        image_button.setBounds(600,900,120,50);
         add(image_button);
         image_button.addActionListener(new ActionListener() {
             @Override
@@ -61,8 +65,8 @@ public class App extends JFrame {
             }
         });
 
-        paint_button =  new JButton("Paint");
-        paint_button.setBounds(500,900,120,50);
+        paint_button =  new JButton("Paint tool");
+        paint_button.setBounds(400,900,120,50);
         add(paint_button);
         paint_button.addActionListener(new ActionListener() {
             @Override
@@ -73,7 +77,7 @@ public class App extends JFrame {
         });
 
         blur_button = new JButton("Blur image");
-        blur_button.setBounds(900,900,120,50);
+        blur_button.setBounds(800,900,120,50);
         add(blur_button);
         blur_button.addActionListener(new ActionListener() {
             @Override
@@ -84,7 +88,7 @@ public class App extends JFrame {
         });
 
         negative_color = new JButton("Negative color");
-        negative_color.setBounds(1100,900,120,50);
+        negative_color.setBounds(1000,900,120,50);
         add(negative_color);
         negative_color.addActionListener(new ActionListener() {
             @Override
@@ -95,13 +99,28 @@ public class App extends JFrame {
         });
 
         mono_color = new JButton("Mono color");
-        mono_color.setBounds(1300,900,120,50);
+        mono_color.setBounds(1200,900,120,50);
         add(mono_color);
         mono_color.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Mono_color monoColor = new Mono_color(painting_panel);
                 monoColor.start();
+            }
+        });
+
+        save_image = new JButton("Save image");
+        save_image.setBounds(1400,900,120,50);
+        add(save_image);
+        save_image.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    File imageToSave = new File("saved.png");
+                    ImageIO.write(painting_panel.getA_Im().getImage(), "png", imageToSave);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }

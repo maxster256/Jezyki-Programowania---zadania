@@ -13,24 +13,19 @@ public class Open_image extends Thread{
     }
     @Override
     public void run() {
-        try {
-            JFileChooser fileChooser = new JFileChooser();
-            int returnValue = fileChooser.showOpenDialog(null);
-            if (returnValue == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
-                try {
-                    BufferedImage image = ImageIO.read(selectedFile);
-                    SwingUtilities.invokeLater(() -> drawingPanel.setImage(image));
-
-                    drawingPanel.newCanvas();
-                    drawingPanel.setFixed_image(null);
-                    drawingPanel.revalidate();
-                    drawingPanel.repaint();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+        JFileChooser fileChooser = new JFileChooser();
+        int returnValue = fileChooser.showOpenDialog(null);
+        if (returnValue == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            try {
+                BufferedImage image = ImageIO.read(selectedFile);
+                drawingPanel.setImage(image);
+                drawingPanel.setFixed_image(null);
+                drawingPanel.revalidate();
+                drawingPanel.repaint();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
-            Thread.sleep(100);
-        }catch(InterruptedException e){}
+        }
     }
 }
