@@ -1,8 +1,11 @@
 package Task;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class Drawing_panel extends JPanel{
     private App_image A_Im = new App_image();
@@ -12,8 +15,16 @@ public class Drawing_panel extends JPanel{
     public void initialize(Dimension screen){
         setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight()-200);
         setBorder(BorderFactory.createLineBorder(Color.black));
+        init_template();
         setLayout(null);
         setVisible(true);
+    }
+    public void init_template(){
+        try {
+            imported_image = ImageIO.read(new File("TEMPLATE.jpg"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void paintByMouse(int x, int y, Color color) {
