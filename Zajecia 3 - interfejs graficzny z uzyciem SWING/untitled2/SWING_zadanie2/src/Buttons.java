@@ -17,7 +17,7 @@ public class Buttons {
                     case "OPEN":    OPEN(); break;
                     case "SAVE":    try {SAVE();} catch (IOException ex) {Notebook.getField().setText("An error occurred!"); throw new RuntimeException(ex);} break;
                     case "CLOSE":   CLOSE(); break;
-                    default: System.out.println("oops"); break;
+                    default: break;
                 }
             }
         });

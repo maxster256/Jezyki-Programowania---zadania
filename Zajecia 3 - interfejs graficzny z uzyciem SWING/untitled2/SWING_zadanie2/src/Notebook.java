@@ -1,8 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Notebook {
-    private static JFrame frame;
+public class Notebook extends JFrame{
     private static JTextField field;
     private static JTextArea area;
     Buttons NEW, OPEN, SAVE, CLOSE;
@@ -13,9 +12,9 @@ public class Notebook {
         create_buttons();
         add_elements();
 
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
     public static JTextField getField(){
         return field;
@@ -24,10 +23,10 @@ public class Notebook {
         return area;
     }
     public void init_frame(){
-        frame = new JFrame("Notebook");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setMinimumSize(new Dimension(1000,800));
+        setTitle("Notebook");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+        setMinimumSize(new Dimension(1000,800));
     }
     public void create_field(){
         field = new JTextField("Use this field to name the file you want to save/open");
@@ -46,11 +45,11 @@ public class Notebook {
         CLOSE = new Buttons(new JButton("CLOSE"),790);
     }
     public void add_elements(){
-        frame.add(area);
-        frame.add(field);
-        frame.add(NEW.getButton());
-        frame.add(OPEN.getButton());
-        frame.add(SAVE.getButton());
-        frame.add(CLOSE.getButton());
+        add(area);
+        add(field);
+        add(NEW.getButton());
+        add(OPEN.getButton());
+        add(SAVE.getButton());
+        add(CLOSE.getButton());
     }
 }

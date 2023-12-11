@@ -3,8 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class FrameClass{
-    JFrame frame;
+public class FrameClass extends JFrame{
     JLabel BMI_label;
     JButton button;
     myComponent mass_component, height_component;
@@ -13,15 +12,15 @@ public class FrameClass{
         create_components();
         add_components();
 
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
     public void init_frame(){
-        frame = new JFrame("BMI Calculator");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setMinimumSize(new Dimension(500,400));
+        setTitle("BMI Calculator");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+        setMinimumSize(new Dimension(500,400));
     }
     public void create_components(){
         mass_component = new myComponent(100,150,"mass (kg)");
@@ -48,17 +47,18 @@ public class FrameClass{
             BMI_label.setText("Your BMI index is " + String.format("%.2f",BMI_index));
         }
         catch(NumberFormatException error){
-            BMI_label.setText("<html><div style='text-align: center;'>Wrong input!<br>Make sure you use dot instead of comma<br>and there are only digits in TextFields</div></html>");
+            BMI_label.setText("<html><div style='text-align: center;'>Wrong input!" +
+                    "<br>Make sure you use dot instead of comma<br>and there are only digits in TextFields</div></html>");
         }
-        frame.revalidate();
-        frame.repaint();
+        revalidate();
+        repaint();
     }
     public void add_components(){
-        frame.add(mass_component.getField());
-        frame.add(mass_component.getLabel());
-        frame.add(height_component.getField());
-        frame.add(height_component.getLabel());
-        frame.add(button);
-        frame.add(BMI_label);
+        add(mass_component.getField());
+        add(mass_component.getLabel());
+        add(height_component.getField());
+        add(height_component.getLabel());
+        add(button);
+        add(BMI_label);
     }
 }

@@ -3,31 +3,24 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static java.awt.Color.getColor;
-
-public class GUI {
-    JFrame frame;
+public class GUI extends JFrame{
     JPanel panel;
     JTextField field;
     Button button;
     public void start(){
         init_frame();
-
         create_elements();
+        add_elements();
 
-        frame.add(panel);
-        frame.add(button);
-        frame.add(field);
-
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
     }
     public void init_frame(){
-        frame = new JFrame("Paint me :DDD");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
-        frame.setMinimumSize(new Dimension(800,500));
+        setTitle("Paint me :DDD");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(null);
+        setMinimumSize(new Dimension(800,500));
     }
     public void create_elements(){
         button = new Button("Type color in the Text Field and click me!");
@@ -46,6 +39,12 @@ public class GUI {
         panel = new JPanel();
         panel.setBackground(Color.BLUE);
         panel.setBounds(0,0,500,500);
+    }
+
+    public void add_elements(){
+        add(panel);
+        add(button);
+        add(field);
     }
 
     public void paint_panel(){
