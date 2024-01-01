@@ -14,12 +14,10 @@ public class Mono_color extends Thread{
     }
     @Override
     public void run(){
-        SwingUtilities.invokeLater(() -> {
-            chosenColor = JColorChooser.showDialog(null, "Choose a color", Color.black);
-            if (chosenColor != null) {
-                fix_image();
-            }
-        });
+        chosenColor = JColorChooser.showDialog(null, "Choose a color", Color.black);
+        if (chosenColor != null) {
+            fix_image();
+        }
     }
     public void fix_image(){
         BufferedImage image = drawingPanel.getA_Im().getImage();

@@ -18,12 +18,10 @@ public class Paint_image extends Thread{
 
     @Override
     public void run() {
-        SwingUtilities.invokeLater(() -> {
-            chosenColor = JColorChooser.showDialog(null, "Choose a color", Color.black);
-            if (chosenColor != null) {
-                addPaintingMouseListeners();
-            }
-        });
+        chosenColor = JColorChooser.showDialog(null, "Choose a color", Color.black);
+        if (chosenColor != null) {
+            addPaintingMouseListeners();
+        }
     }
 
     private void addPaintingMouseListeners() {
