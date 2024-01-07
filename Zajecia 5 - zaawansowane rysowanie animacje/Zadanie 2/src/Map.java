@@ -3,8 +3,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Map extends JPanel{
-    //ArrayList<Vehicle> vehicles = new ArrayList<>();
-    //ArrayList<Pedestrian> pedestrians = new ArrayList<>();
     ArrayList<Entity> entities = new ArrayList<>();
     Intersection intersection;
     public void initialize(Dimension screen){
@@ -36,29 +34,6 @@ public class Map extends JPanel{
             Rectangle crossing = intersection.crossings.get(i);
             g.fillRect((int)crossing.getX(),(int)crossing.getY(),(int)crossing.getWidth(),(int)crossing.getHeight());
         }
-        /*
-        for(Vehicle object : vehicles){
-            g.setColor(Color.orange);
-            Rectangle entity = object.getVehicleBox();
-            g.fillRect((int)entity.getX(),(int)entity.getY(),(int)entity.getWidth(),(int)entity.getHeight());
-        }
-
-        for(Pedestrian object : pedestrians){
-            g.setColor(Color.black);
-            Rectangle entity = object.getPedestrianBox();
-            g.fillRect((int)entity.getX(),(int)entity.getY(),(int)entity.getWidth(),(int)entity.getHeight());
-        }
-        vehicles.removeIf(n -> (
-                n.getVehicleBox().getX() < -99) ||
-                n.getVehicleBox().getX() > 1999 ||
-                n.getVehicleBox().getY() < -99 ||
-                n.getVehicleBox().getY() > 999);
-        pedestrians.removeIf(n -> (
-                n.getPedestrianBox().getX() < -99) ||
-                n.getPedestrianBox().getX() > 1999 ||
-                n.getPedestrianBox().getY() < -99 ||
-                n.getPedestrianBox().getY() > 999);*/
-
         for(Entity object : entities){
             if(object.getClass().equals(Vehicle.class))         {g.setColor(Color.orange);}
             else if(object.getClass().equals(Pedestrian.class)) {g.setColor(Color.black);}

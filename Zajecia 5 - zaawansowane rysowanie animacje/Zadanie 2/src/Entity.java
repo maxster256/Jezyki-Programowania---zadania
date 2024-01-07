@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Entity extends Thread{
-    ArrayList<Integer> direction = new ArrayList<>();
+    private ArrayList<Integer> direction = new ArrayList<>();
     private Rectangle entityBox = new Rectangle();
     int randomizer;
     Map roadMap;
@@ -35,10 +35,7 @@ public abstract class Entity extends Thread{
                     if(Math.abs(entityBox.getCenterX() - roadMap.intersection.getX_center()) < 160 && Math.abs(entityBox.getCenterY() - roadMap.intersection.getY_center()) < 160){
                         return true;
                     } else {
-                        if(roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX()-(direction.get(0)),entityBox.getCenterY()-(direction.get(1)))){
-                            return true;
-                        }
-                        return false;
+                        return roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX() - (direction.get(0)), entityBox.getCenterY() - (direction.get(1)));
                     }
                 }
             }
