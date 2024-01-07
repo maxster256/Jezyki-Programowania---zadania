@@ -47,7 +47,7 @@ public class App extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Vehicle veh = new Vehicle(roadMap);
-                roadMap.vehicles.add(veh);
+                roadMap.entities.add(veh);
                 veh.start();
             }
         });
@@ -59,7 +59,7 @@ public class App extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Pedestrian ped = new Pedestrian(roadMap);
-                roadMap.pedestrians.add(ped);
+                roadMap.entities.add(ped);
                 ped.start();
             }
         });

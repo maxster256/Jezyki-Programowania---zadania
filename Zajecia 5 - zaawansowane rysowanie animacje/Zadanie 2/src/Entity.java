@@ -31,8 +31,8 @@ public abstract class Entity extends Thread{
     public boolean check_lights(){
         for(int i=0;i<4;i++){
             if(roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX()+(50*direction.get(0)),entityBox.getCenterY()+(50*direction.get(1)))){
-                if(roadMap.intersection.lights.get(i)) {
-                    if(Math.abs(entityBox.getCenterX() - roadMap.intersection.getX_center()) < 100 && Math.abs(entityBox.getCenterY() - roadMap.intersection.getY_center()) < 100){
+                if((roadMap.intersection.lights.get(i) && this.getClass().equals(Pedestrian.class))||(!roadMap.intersection.lights.get(i) && this.getClass().equals(Vehicle.class))) {
+                    if(Math.abs(entityBox.getCenterX() - roadMap.intersection.getX_center()) < 160 && Math.abs(entityBox.getCenterY() - roadMap.intersection.getY_center()) < 160){
                         return true;
                     } else {
                         if(roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX()-(direction.get(0)),entityBox.getCenterY()-(direction.get(1)))){
@@ -46,6 +46,7 @@ public abstract class Entity extends Thread{
         return true;
     }
     public boolean check_entities(){
+        if(this.getClass().equals(Pedestrian.class)) {return true;}
         for(Entity entity : roadMap.entities){
             if(entity.entityBox.contains(entityBox.getCenterX()+(40*direction.get(0)),entityBox.getCenterY()+(40*direction.get(1)))){
                 return false;
