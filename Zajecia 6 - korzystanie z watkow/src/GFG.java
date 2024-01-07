@@ -10,21 +10,17 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import javax.swing.*;
 
-// Main class
-// SwingWorkerSample
-public class GFG {
+public class GFG extends JFrame{
 
     private static JLabel statusLabel;
-    private static JFrame mainFrame;
 
-    // Method
-    public static void swingWorkerSample()
+    public void swingWorkerSample()
     {
-        mainFrame = new JFrame("Swing Worker");
-        mainFrame.setSize(400, 400);
-        mainFrame.setLayout(new GridLayout(2, 1));
+        setTitle("Swing Worker");
+        setSize(400, 400);
+        setLayout(new GridLayout(2, 1));
 
-        mainFrame.addWindowListener(new WindowAdapter() {
+        addWindowListener(new WindowAdapter() {
             // Method
             @Override
             public void windowClosing(WindowEvent e)
@@ -33,9 +29,8 @@ public class GFG {
             }
         });
 
-        statusLabel
-                = new JLabel("Not Completed", JLabel.CENTER);
-        mainFrame.add(statusLabel);
+        statusLabel = new JLabel("Not Completed", JLabel.CENTER);
+        add(statusLabel);
 
         JButton btn = new JButton("Start counter");
         btn.setPreferredSize(new Dimension(5, 5));
@@ -50,12 +45,12 @@ public class GFG {
             }
         });
 
-        mainFrame.add(btn);
-        mainFrame.setVisible(true);
+        add(btn);
+        setVisible(true);
     }
 
     // Method
-    private static void startThread()
+    private void startThread()
     {
 
         SwingWorker sw1 = new SwingWorker() {
@@ -68,13 +63,11 @@ public class GFG {
                 // Defining what thread will do here
                 for (int i = 10; i >= 0; i--) {
                     Thread.sleep(100);
-                    System.out.println("Value in thread : "
-                            + i);
+                    System.out.println("Value in thread : "+ i);
                     publish(i);
                 }
 
-                String res = "Finished Execution";
-                return res;
+                return "Finished Execution";
             }
 
             // Method
@@ -112,9 +105,8 @@ public class GFG {
         sw1.execute();
     }
 
-    // Main driver method
     public static void main(String[] args)
     {
-        swingWorkerSample();
+        new GFG().swingWorkerSample();
     }
 }
