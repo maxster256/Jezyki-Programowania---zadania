@@ -1,3 +1,8 @@
+package Task;
+
+import Task.Entities.Pedestrian;
+import Task.Entities.Vehicle;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -33,7 +38,6 @@ public class App extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         screen = Toolkit.getDefaultToolkit().getScreenSize();
         setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight());
-        setLayout(null);
     }
     public void init_panel(){
         panel = new JPanel();

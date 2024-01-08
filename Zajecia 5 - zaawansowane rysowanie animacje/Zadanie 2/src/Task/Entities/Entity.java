@@ -1,3 +1,7 @@
+package Task.Entities;
+
+import Task.Map;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -32,7 +36,7 @@ public abstract class Entity extends Thread{
         for(int i=0;i<4;i++){
             if(roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX()+(50*direction.get(0)),entityBox.getCenterY()+(50*direction.get(1)))){
                 if((roadMap.intersection.lights.get(i) && this.getClass().equals(Pedestrian.class))||(!roadMap.intersection.lights.get(i) && this.getClass().equals(Vehicle.class))) {
-                    if(Math.abs(entityBox.getCenterX() - roadMap.intersection.getX_center()) < 160 && Math.abs(entityBox.getCenterY() - roadMap.intersection.getY_center()) < 160){
+                    if(Math.abs(entityBox.getCenterX() - roadMap.intersection.getIntersectionCenterX()) < 160 && Math.abs(entityBox.getCenterY() - roadMap.intersection.getIntersectionCenterY()) < 160){
                         return true;
                     } else {
                         return roadMap.intersection.crossings.get(i).contains(entityBox.getCenterX() - (direction.get(0)), entityBox.getCenterY() - (direction.get(1)));

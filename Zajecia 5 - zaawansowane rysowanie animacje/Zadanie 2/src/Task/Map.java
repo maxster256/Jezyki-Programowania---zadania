@@ -1,10 +1,16 @@
+package Task;
+
+import Task.Entities.Entity;
+import Task.Entities.Pedestrian;
+import Task.Entities.Vehicle;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Map extends JPanel{
-    ArrayList<Entity> entities = new ArrayList<>();
-    Intersection intersection;
+    public ArrayList<Entity> entities = new ArrayList<>();
+    public Intersection intersection;
     public void initialize(Dimension screen){
         setBounds(0,0,(int)screen.getWidth(),(int)screen.getHeight()-200);
         setBorder(BorderFactory.createLineBorder(Color.black));
